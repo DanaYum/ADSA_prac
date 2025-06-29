@@ -1,35 +1,44 @@
-class Solution {
-public:
-    int numEnclaves(vector<vector<int>>& grid) {
-        int m = grid.size();
-        int n = grid[0].size();
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if ((i == 0 || j == 0 || i == m - 1 || j == n - 1) && grid[i][j] == 1) {
-                    dfs(grid, i, j);
+#include<bits/stdc++.h>
+using namespace std;
+class Solution{
+    int numberOFEnclaves(vector<vector<int>>& grid){
+        queue<pair<int,int>>q;
+        int n=grid.size();
+        int m=grid[0].size();
+        vector<vector<int>>vis(n,vector<int>(m,0));
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(i==0 || i==n-1 || j==0 || j==m-1){
+                    if(grid[i][j]==1){
+                        q.push({i,j});
+                        vis[i][j]=1;
+                    }
                 }
             }
         }
-        return accumulate(begin(grid), end(grid), 0, [](int sum, auto row) { return sum + accumulate(begin(row), end(row), 0); });
-    }
-    
-
-
-
-
-
-
-    
-private:
-    void dfs(vector<vector<int>>& grid, int i, int j) {
-        grid[i][j] = 0;
-        vector<vector<int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        for (vector<int>& direction : directions) {
-            int x = i + direction[0];
-            int y = j + direction[1];
-            if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == 1) {
-                dfs(grid, x, y);
+        int delrow[]={-1,0,1,0};
+        int delcol[]={0,1,0,-1};
+        while(!q.empty()){
+            int row=q.front().first;
+            int col=q.front().second;
+            q.pop();
+            for(int i=0;i<4;i++){
+                int nrow=row + delrow[i];
+                int ncol=col + delcol[i];
+                if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && !vis[nrow][ncol] && grid[nrow][ncol]==1){
+                    vis[nrow][ncol]=1;
+                    q.push({nrow,ncol});
+                }
             }
         }
+        int count=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(vis[i][j]==0 && grid[i][j]==1){
+                    count++;
+                }
+            }
+        }
+        return count;
     }
-};
+}
