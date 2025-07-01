@@ -5,7 +5,8 @@ class Solution {
   public:
     vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
         // Step 1: Convert edge list to adjacency list
-        vector<pair<int, int>> adj[V];  // adj[u] = {v, wt}
+        //edge = {u, v, wt}
+        vector<pair<int, int>> adj[V];  // adj[u] = {v, wt} adj[u] contains:
         for(auto edge : edges) {
             int u = edge[0];
             int v = edge[1];
@@ -21,12 +22,12 @@ class Solution {
         // Step 3: Distance vector, initialized to INF
         vector<int> dist(V, INT_MAX);
         dist[src] = 0;
-        pq.push({0, src});
+        pq.push({src,0});  // {node,distance}
         
         // Step 4: Main loop
         while(!pq.empty()) {
-            int dis = pq.top().first;
-            int node = pq.top().second;
+            int node = pq.top().first;
+            int dis = pq.top().second;
             pq.pop();
             
             for(auto it : adj[node]) {
@@ -35,7 +36,7 @@ class Solution {
                 
                 if(dis + edgeWeight < dist[adjNode]) {
                     dist[adjNode] = dis + edgeWeight;
-                    pq.push({dist[adjNode], adjNode});
+                    pq.push({adjNode, dist[adjNode]});
                 }
             }
         }
