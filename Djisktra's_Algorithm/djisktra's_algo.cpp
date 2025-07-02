@@ -22,12 +22,12 @@ class Solution {
         // Step 3: Distance vector, initialized to INF
         vector<int> dist(V, INT_MAX);
         dist[src] = 0;
-        pq.push({src,0});  // {node,distance}
-        
+        pq.push({0,src});  // {distance, node}
+
         // Step 4: Main loop
         while(!pq.empty()) {
-            int node = pq.top().first;
-            int dis = pq.top().second;
+            int dis = pq.top().first;
+            int node = pq.top().second;
             pq.pop();
             
             for(auto it : adj[node]) {
@@ -36,7 +36,7 @@ class Solution {
                 
                 if(dis + edgeWeight < dist[adjNode]) {
                     dist[adjNode] = dis + edgeWeight;
-                    pq.push({adjNode, dist[adjNode]});
+                    pq.push({dist[adjNode], adjNode});
                 }
             }
         }
