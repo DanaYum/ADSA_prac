@@ -3,13 +3,12 @@ using namespace std;
 
 void f(int ind, vector<int>& ds, int arr[], int n) {
     if (ind == n) {
-        cout << "[";
         for (int i = 0; i < ds.size(); ++i) {
-            cout << ds[i];
-            if (i != ds.size() - 1) cout << ",";
+            cout << ds[i]<<" ";
         }
-        cout << "]";
-        if (!ds.empty()) cout << ",";
+        if (ds.size() == 0) {
+            cout << "{}"; // Print empty set if no elements are selected
+        }
         cout << endl;
         return;
     }
