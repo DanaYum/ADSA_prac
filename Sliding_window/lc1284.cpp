@@ -1,4 +1,4 @@
-//first solve lc930
+//first solve lc930 and convert the even numbers to 0 and odd numbers to 1
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
