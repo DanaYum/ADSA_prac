@@ -23,9 +23,7 @@ public:
             if(nums[i]%2==0){
                 nums[i]=0;
             }
-            else{
-                nums[i]=1;
-            }
+            else nums[i]=1;
         }
         return f(nums,k) - f(nums,k-1);
     }
