@@ -18,3 +18,4 @@ public:
         return f(m-1,n-1,grid,dp);
     }
 };
+//tc: O(m*n), sc: O(m*n)+O(m-1  +  n-1)
