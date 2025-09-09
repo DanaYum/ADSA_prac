@@ -1,3 +1,4 @@
+//coin change I
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
@@ -5,7 +6,7 @@ public:
     int f(int ind,int target,vector<int>& coins,vector<vector<int>>& dp){
         if(ind==0){
             if(target % coins[ind]==0) return target / coins[ind];
-            else return 1e9;
+            else returlcn 1e9;
         }
         if(dp[ind][target]!=-1) return dp[ind][target];
         int notTake=0+f(ind-1,target,coins,dp);
