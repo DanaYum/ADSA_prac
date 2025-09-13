@@ -1,4 +1,4 @@
-//lc 63 unique paths II with obstacle
+//lc 63 unique paths II with obstacles
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
