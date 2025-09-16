@@ -1,4 +1,4 @@
-//516. Longest Palindromic Subsequence using LCS code
+//516. Longest Palindromic Subsequence using LCS
 
 
 #include<bits/stdc++.h>
