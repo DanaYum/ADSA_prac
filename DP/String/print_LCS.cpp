@@ -20,7 +20,7 @@ public:
         int i = s.size() - 1;
         int j = r.size() - 1;
         int len = dp[i][j];
-        string ans(len, '$'); // placeholder string
+        string ans(len, '$'); 
         int index = len - 1;
 
         while (i >= 0 && j >= 0) {
