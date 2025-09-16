@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//Memoization
+//Memoization technique
 class Solution {
 public:
     int f(int ind1,int ind2, string& text1, string& text2,vector<vector<int>>& dp){
