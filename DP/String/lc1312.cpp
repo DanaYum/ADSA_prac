@@ -11,7 +11,7 @@ public:
         // DP table (n+1) x (n+1)
         vector<vector<int>> dp(n+1, vector<int>(n+1, 0));
 
-        // Fill DP
+        // Fill DP table
         for(int i=1; i<=n; i++){
             for(int j=1; j<=n; j++){
                 if(str[i-1] == r[j-1]){
