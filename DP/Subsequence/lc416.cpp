@@ -1,4 +1,4 @@
-//416. Partition Equal Subset Sum 1
+//416. Partition Equal Subset Sum I
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
