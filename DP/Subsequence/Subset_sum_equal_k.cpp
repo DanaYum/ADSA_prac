@@ -1,6 +1,6 @@
 //subset sum equal to k
 
-//Memoization
+//Memoization technique
 #include <bits/stdc++.h>
 using namespace std;
 
