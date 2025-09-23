@@ -1,4 +1,4 @@
-//coin change 2
+//coin change II
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
