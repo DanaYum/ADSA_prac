@@ -26,3 +26,26 @@ int main(){
     cout<<longestConsecutive(arr);
     return 0;
 }
+// beter approach 
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int cnt=0;
+        int longest=0;
+        int lastSmaller=INT_MIN;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            if(nums[i]-1==lastSmaller){
+                cnt+=1;
+                lastSmaller=nums[i];
+            }
+            else if(nums[i] != lastSmaller){
+                cnt=1;
+                lastSmaller=nums[i];
+            }
+            longest=max(longest,cnt);
+        }
+        return longest;
+    }
+};
